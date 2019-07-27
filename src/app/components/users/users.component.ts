@@ -48,7 +48,7 @@ public clearMessage() {
   this.message.nativeElement.value = ''
 }
 end(){  
-this.http.post("https://6dcce224.ngrok.io/endchat",{"id":sessionStorage.getItem('id')}).subscribe(res=>{
+this.http.post("https://fff-facebook-backend.herokuapp.com/endchat",{"id":sessionStorage.getItem('id')}).subscribe(res=>{
   console.log(res)
 })
 sessionStorage.clear();
