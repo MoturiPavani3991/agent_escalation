@@ -1,0 +1,142 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-9 inbox_msg">
+      <div class="inbox_people">
+        <div class="headind_srch">
+          <div class="recent_heading">
+            <h4>Request List</h4>
+          </div>
+          <div class="srch_bar">
+            <div class="stylish-input-group">
+              <input type="text" class="search-bar" placeholder="Search">
+              <span class="input-group-addon">
+                <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
+              </span> </div>
+          </div>
+        </div>
+        <div class="inbox_chat">
+          <div class="chat_list ">
+            <div  *ngFor="let people of list" class="chat_people">
+              <div class="chat_img"> <img src={{people.pic}} alt="sunil"> </div>
+              <div class="chat_ib">
+                <h5>{{people.name}} 
+                  <span class="chat_date"><button (click)="end()">End</button></span>
+                </h5>
+                <p>status</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mesgs">
+        <div class="msg_history px-3">
+          <div *ngFor="let msg of conversation">
+            <div *ngIf="msg.type === 'USER'" class="incoming_msg">
+              <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil">
+              </div>
+              <div class="received_msg">
+                <div class="received_withd_msg">
+                  <p>{{msg.text}}</p>
+                  <span class="time_date"> {{msg.time}}</span>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="msg.type === 'BOT'" class="outgoing_msg">
+              <div class="sent_msg">
+                <p>{{msg.text}}</p>
+                <span class="time_date">{{msg.time}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="type_msg">
+          <div class="input_msg_write">
+            <!-- <input type="text" class="write_msg" placeholder="Type a message" />
+            <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button> -->
+            <textarea autofocus type="text" class="chat-input-text" placeholder="Say something" #message
+              (keydown.enter)="onSubmit()" (keyup.enter)="message.value = ''" (keyup.escape)="dismiss.emit()"
+              autofocus></textarea>
+            <button style="background-color: #eaeaea" type="submit" class="chat-input-submit" (send)="sendMessage($event)" (click)="onSubmit()">
+              <span class="glyphicon glyphicon-send"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 py-4">
+      <div class="info-card-header text-center">
+        <h1> Kane Williamson </h1>
+        <p class="title text-muted">
+          <i class="fa fa-envelope"> firstname.last@gmail.com</i>
+          <br />
+          <i class="fa fa-phone"> (888) 888-8888</i>
+          <br />
+          <i class="fa fa-calendar"> Customer since: May 20 2018</i>
+        </p>
+      </div>
+      <div class="title-divider">
+        <hr>
+      </div>
+      <div class="info-card-detail px-5">
+        <div class="row">
+          <div class="col-md">
+            <h5>Open Orders (2)</h5>
+            <div class="order-details">
+              <div class="accordion" id="accordionExample">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+                  aria-expanded="true" aria-controls="collapseOne">
+                  Mon Jul 22 2019 11:24:07
+                </button>
+                <div id="collapseOne" class="collapse show order-details" aria-labelledby="headingOne"
+                  data-parent="#accordionExample">
+                  <span>Order# 113-4571044-6605839</span><br />
+                  <strong>Black Magic Hydroponic Starter Kit</strong>
+                  <br />
+                  <small>Quantity : 1</small><br />
+                  <samp style="color:crimson">$302</samp>
+                </div>
+              </div>
+              <div class="accordion" id="accordionExample">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo"
+                  aria-expanded="true" aria-controls="collapseOne">
+                  Fri Apr 15 2019 13:24:07
+                </button>
+                <div id="collapseTwo" class="collapse order-details" aria-labelledby="headingOne"
+                  data-parent="#accordionExample">
+                  <span>Order# 113-4571044-6605839</span><br />
+                  <strong>Black Magic Hydroponic Starter Kit</strong>
+                  <br />
+                  <small>Quantity : 1</small><br />
+                  <samp style="color:crimson">$302</samp>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row" style="margin-top:10%">
+          <div class="col-md">
+            <h5>Previous Orders (1)</h5>
+            <div class="order-details">
+              <div class="accordion" id="accordionExample">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseThree"
+                  aria-expanded="true" aria-controls="collapseOne">
+                  Mon Jul 22 2019 11:24:07
+                </button>
+                <div id="collapseThree" class="collapse order-details" aria-labelledby="headingOne"
+                  data-parent="#accordionExample">
+                  <span>Order# 113-4571044-6605839</span><br />
+                  <strong>Black Magic Hydroponic Starter Kit</strong>
+                  <br />
+                  <small>Quantity : 1</small><br />
+                  <samp style="color:crimson">$302</samp>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <span class="icon-separator text-center"><i class="fa fa-star"></i></!-->
+    </div>
+  </div>
+</div>
